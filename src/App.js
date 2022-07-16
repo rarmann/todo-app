@@ -8,13 +8,13 @@ function App() {
   //State
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
-  const [status, setStatus] = useState('all')
+  const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-  
+
   //RUN ONCE when the app starts
   useEffect(() => {
     getLocalTodos();
-  },[]);
+  }, []);
 
   //USE EFFECT
   useEffect(() => {
@@ -24,12 +24,12 @@ function App() {
 
   //Functions
   const filterHandler = () => {
-    switch(status){
-      case 'completed':
-        setFilteredTodos(todos.filter(todo => todo.completed === true))
+    switch (status) {
+      case "completed":
+        setFilteredTodos(todos.filter((todo) => todo.completed === true));
         break;
-      case 'uncompleted':
-        setFilteredTodos(todos.filter(todo => todo.completed === false))
+      case "uncompleted":
+        setFilteredTodos(todos.filter((todo) => todo.completed === false));
         break;
       default:
         setFilteredTodos(todos);
@@ -39,7 +39,7 @@ function App() {
 
   //Save to local
   const saveLocalTodos = () => {
-      localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   const getLocalTodos = () => {
@@ -53,9 +53,32 @@ function App() {
 
   return (
     <div className="App">
-      <header><h1>ToDo Liste</h1></header>
-      <Form inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText} setStatus={setStatus}/>
-      <TodoList setTodos={setTodos} todos={todos} filteredTodos={filteredTodos}/>
+      {/* <header>
+        <h1>ToDo Liste</h1>
+      </header> */}
+      <div className="todolist">
+        <Form
+          inputText={inputText}
+          todos={todos}
+          setTodos={setTodos}
+          setInputText={setInputText}
+          setStatus={setStatus}
+        />
+        <TodoList
+          setTodos={setTodos}
+          todos={todos}
+          filteredTodos={filteredTodos}
+        />
+      </div>
+      <div className="content">
+        <h1>ToDo App</h1>
+        <h2>Mit dieser ToDo App kannst du deine Aufgaben oraganisieren.</h2>
+      </div>
+
+      <footer>
+        <a href="/">Impressum</a> <span className="divider">|</span>
+        <a href="/">Datenschutz</a>
+      </footer>
     </div>
   );
 }
