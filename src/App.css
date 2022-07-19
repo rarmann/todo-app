@@ -26,6 +26,14 @@ form button {
   border: none;
   background: white;
 }
+
+@media only screen and (max-width: 600px) {
+  form input,
+  form button {
+    font-size: 1.5rem;
+  }
+}
+
 form button {
   color: #fff;
   background: #41c7b9;
@@ -60,11 +68,27 @@ form button:hover {
 .filter-todo {
   padding: 1rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .filter-todo {
+    display: none;
+  }
+}
 .todo li {
   flex: 1;
 }
 .todo-input::placeholder {
   font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+  .todo {
+    font-size: 0.9rem;
+  }
+
+  .todo-input::placeholder {
+    font-size: 16px;
+  }
 }
 
 .trash-btn,

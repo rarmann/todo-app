@@ -72,7 +72,9 @@ function App() {
       </div>
       <div className="content">
         <h1>ToDo App</h1>
-        <h2>Mit dieser ToDo App kannst du deine Aufgaben oraganisieren.</h2>
+        <h2>
+          Mit dieser App kannst du ganz bequem deine Aufgaben organisieren.
+        </h2>
       </div>
 
       <footer>
